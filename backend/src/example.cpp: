@@ -1,0 +1,5 @@
+#include "example.h"
+
+void exampleFunction() {
+    std::cout << "This is an example function from C++ backend." << std::endl;
+}
