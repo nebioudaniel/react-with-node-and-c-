@@ -1,5 +1,18 @@
 #include "example.h"
 
-void exampleFunction() {
-    std::cout << "This is an example function from C++ backend." << std::endl;
+#include <iostream>  // Necessary for standard input/output (std::cin, std::cout)
+#include <string>     // Necessary for string handling (std::string)
+
+void exampleFunction(const std::string& message) {
+  std::cout << message << std::endl;
+}
+
+int main() {
+  std::string userMessage;
+  std::cout << "Enter a message to print: ";
+  std::getline(std::cin, userMessage); // Read user input with spaces using std::getline
+
+  exampleFunction(userMessage);  // Call the function with user input
+
+  return 0;  // Indicate successful program termination
 }
