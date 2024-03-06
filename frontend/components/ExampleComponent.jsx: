@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ExampleComponent = () => {
+const ExampleComponent = ({ customizationOptions, onClick }) => {
+    const { color, fontSize, imageUrl } = customizationOptions;
+
     return (
-        <div>
+        <div style={{ color, fontSize }}>
             <h1>Example Component</h1>
             <p>This is an example React component.</p>
+            {imageUrl && <img src={imageUrl} alt="Example" />}
+            <button onClick={onClick}>Click Me</button>
         </div>
     );
 };
