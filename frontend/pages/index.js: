@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ExampleComponent from '../components/ExampleComponent';
 
 const IndexPage = () => {
+    // State for managing customization options
+    const [customizationOptions, setCustomizationOptions] = useState({
+        color: 'blue',
+        fontSize: '16px',
+    });
+
+    // Function to handle changes in customization options
+    const handleCustomizationChange = (option, value) => {
+        setCustomizationOptions({
+            ...customizationOptions,
+            [option]: value,
+        });
+    };
+
     return (
         <div>
-            <h1>Home Page</h1>
-            <ExampleComponent />
+            <h1 style={{ color: customizationOptions.color, fontSize: customizationOptions.fontSize }}>Home Page for Customization</h1>
+            <ExampleComponent 
+                customizationOptions={customizationOptions} 
+                onCustomizationChange={handleCustomizationChange} 
+            />
         </div>
     );
 };
