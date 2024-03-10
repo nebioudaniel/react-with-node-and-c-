@@ -8,6 +8,7 @@ My Web App is a full-stack web application built using Node.js, React, Next.js, 
 - Backend written in C++ for high-performance computing tasks.
 - Basic server setup using Node.js to serve static files and handle requests.
 - Simple project structure for easy development and maintenance.
+- Amazing ui With shadcn ui
 
 ## Requirements
 - Node.js and npm for running the frontend and backend.
@@ -35,7 +36,7 @@ Open a web browser and navigate to http://localhost:3000
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Author
-Your Name
+Nebiou Daniel
 
 ## Acknowledgments
 - Inspiration
