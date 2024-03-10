@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import ExampleComponent from '../components/ExampleComponent';
+import CustomizationPanel from '../components/CustomizationPanel';
 
 const IndexPage = () => {
     // State for managing customization options
     const [customizationOptions, setCustomizationOptions] = useState({
         color: 'blue',
         fontSize: '16px',
+        fontFamily: 'Arial, sans-serif',
+        backgroundColor: 'white',
     });
 
     // Function to handle changes in customization options
@@ -17,9 +20,13 @@ const IndexPage = () => {
     };
 
     return (
-        <div>
-            <h1 style={{ color: customizationOptions.color, fontSize: customizationOptions.fontSize }}>Home Page for Customization</h1>
+        <div style={{ backgroundColor: customizationOptions.backgroundColor, minHeight: '100vh', padding: '20px' }}>
+            <h1 style={{ color: customizationOptions.color, fontSize: customizationOptions.fontSize, fontFamily: customizationOptions.fontFamily }}>Home Page for Customization</h1>
             <ExampleComponent 
+                customizationOptions={customizationOptions} 
+                onCustomizationChange={handleCustomizationChange} 
+            />
+            <CustomizationPanel 
                 customizationOptions={customizationOptions} 
                 onCustomizationChange={handleCustomizationChange} 
             />
