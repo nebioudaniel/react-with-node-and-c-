@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ExampleComponent from '../components/ExampleComponent';
+import CustomizationPanel from '../components/CustomizationPanel';
 
-const ExampleComponent = ({ customizationOptions, onClick }) => {
-    const { color, fontSize, imageUrl } = customizationOptions;
+const IndexPage = () => {
+    // State for managing customization options
+    const [customizationOptions, setCustomizationOptions] = useState({
+        color: 'blue',
+        fontSize: '16px',
+        fontFamily: 'Arial, sans-serif',
+        backgroundColor: 'white',
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+    });
+
+    // Function to handle changes in customization options
+    const handleCustomizationChange = (option, value) => {
+        setCustomizationOptions({
+            ...customizationOptions,
+            [option]: value,
+        });
+    };
 
     return (
-        <div style={{ color, fontSize }}>
-            <h1>Example Component</h1>
-            <p>This is an example React component.</p>
-            {imageUrl && <img src={imageUrl} alt="Example" />}
-            <button onClick={onClick}>Click Me</button>
+        <div style={{ backgroundColor: customizationOptions.backgroundColor, minHeight: '100vh', padding: '20px', boxShadow: customizationOptions.boxShadow }}>
+            <h1 style={{ color: customizationOptions.color, fontSize: customizationOptions.fontSize, fontFamily: customizationOptions.fontFamily }}>Home Page for Customization</h1>
+            <ExampleComponent 
+                customizationOptions={customizationOptions} 
+                onCustomizationChange={handleCustomizationChange} 
+            />
+            <CustomizationPanel 
+                customizationOptions={customizationOptions} 
+                onCustomizationChange={handleCustomizationChange} 
+            />
         </div>
     );
 };
 
-export default ExampleComponent;
+export default IndexPage;
